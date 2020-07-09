@@ -1,0 +1,1 @@
+INSERT INTO customers(${this:name}) VALUES (${this:list}) RETURNING *;

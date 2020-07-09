@@ -1,0 +1,25 @@
+{
+  "name": "cheese-ordering",
+  "version": "1.0.0",
+  "description": "Rest [node.js] appplication cheese ordering management.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Not defined",
+    "start": "set NODE_ENV=production&&node index.js",
+    "debug": "set NODE_ENV=development&&node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zavael/cheese-ordering.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zavael/cheese-ordering/issues"
+  },
+  "homepage": "https://github.com/Zavael/cheese-ordering#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pg-promise": "^10.5.8"
+  }
+}

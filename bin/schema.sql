@@ -8,63 +8,63 @@ Database: PostgreSQL 10
 
 -- Drop relationships section -------------------------------------------------
 
-ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship8"
-;
-ALTER TABLE "Order" DROP CONSTRAINT "Relationship7"
-;
-ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship6"
-;
-ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship4"
-;
-ALTER TABLE "item_price" DROP CONSTRAINT "Relationship2"
-;
+-- ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship8"
+-- ;
+-- ALTER TABLE "Order" DROP CONSTRAINT "Relationship7"
+-- ;
+-- ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship6"
+-- ;
+-- ALTER TABLE "Order_item" DROP CONSTRAINT "Relationship4"
+-- ;
+-- ALTER TABLE "item_price" DROP CONSTRAINT "Relationship2"
+-- ;
 
 
 -- Drop keys section -------------------------------------------------
 
-ALTER TABLE "Order_item" DROP CONSTRAINT "PK_Order_item"
-;
+-- ALTER TABLE "Order_item" DROP CONSTRAINT "PK_Order_item"
+-- ;
 
-ALTER TABLE "Order" DROP CONSTRAINT "PK_Order"
-;
+-- ALTER TABLE "Order" DROP CONSTRAINT "PK_Order"
+-- ;
 
-ALTER TABLE "item_price" DROP CONSTRAINT "PK_item_price"
-;
+-- ALTER TABLE "item_price" DROP CONSTRAINT "PK_item_price"
+-- ;
 
-ALTER TABLE "Item" DROP CONSTRAINT "PK_Item"
-;
+-- ALTER TABLE "Item" DROP CONSTRAINT "PK_Item"
+-- ;
 
-ALTER TABLE "Customer" DROP CONSTRAINT "PK_Customer"
-;
+-- ALTER TABLE "Customer" DROP CONSTRAINT "PK_Customer"
+-- ;
 
 -- Drop indexes section -------------------------------------------------
 
-DROP INDEX "IX_Relationship2"
+DROP INDEX IF EXISTS "IX_Relationship2"
 ;
 
-DROP INDEX "IX_Relationship7"
+DROP INDEX IF EXISTS "IX_Relationship7"
 ;
 
-DROP INDEX "IX_Relationship4"
+DROP INDEX IF EXISTS "IX_Relationship4"
 ;
 
-DROP INDEX "IX_Relationship6"
+DROP INDEX IF EXISTS "IX_Relationship6"
 ;
 
-DROP INDEX "IX_Relationship8"
+DROP INDEX IF EXISTS "IX_Relationship8"
 ;
 
 -- Drop tables section ---------------------------------------------------
 
-DROP TABLE "Order_item"
+DROP TABLE IF EXISTS "Order_item"
 ;
-DROP TABLE "Order"
+DROP TABLE IF EXISTS "Order"
 ;
-DROP TABLE "item_price"
+DROP TABLE IF EXISTS "item_price"
 ;
-DROP TABLE "Item"
+DROP TABLE IF EXISTS "Item"
 ;
-DROP TABLE "Customer"
+DROP TABLE IF EXISTS "Customer"
 ;
 -- Create tables section -------------------------------------------------
 

@@ -1,12 +1,12 @@
 
-INSERT INTO public.items(item_id, item_name)
+INSERT INTO public.items(id, name)
 	VALUES
         (0, 'mlieko'),
         (1, 'jogurt'),
         (2, 'syr'),
         (3, 'bryndza');
 
-INSERT INTO public.customers(customer_id, first_name, last_name)
+INSERT INTO public.customers(id, first_name, last_name)
 	VALUES (0, 'Olivia', 'Cockburn'), (1, 'Ján', 'Wild');
 
 INSERT INTO public.priced_items(valid_from, valid_to, value, item_id)
@@ -17,7 +17,7 @@ INSERT INTO public.priced_items(valid_from, valid_to, value, item_id)
         ('2020-01-01', '2020-12-01', 30, 2),
         ('2020-01-01', '2020-12-01', 40, 3);
 
-INSERT INTO public.orders(order_id, order_payment_status, order_date, customer_id)
+INSERT INTO public.orders(id, payment_status, date, customer_id)
 	VALUES
         (0, 't', '2020-04-15', 0),
         (1, 'f', '2020-06-15', 0),

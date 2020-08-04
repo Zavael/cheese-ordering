@@ -1,1 +1,1 @@
-SELECT * FROM customers WHERE active = true;
+SELECT * FROM customers;

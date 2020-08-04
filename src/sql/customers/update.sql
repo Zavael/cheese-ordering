@@ -1,4 +1,5 @@
 UPDATE customers 
 SET 
-    name = ${data.name}
+    first_name = ${data.first_name},
+    last_name = ${data.last_name}
 WHERE id = ${id}

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Zavael/cheese-ordering#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pg-promise": "^10.5.8"
+    "pg-promise": "^10.5.8",
+    "pug": "^3.0.0"
   }
 }

@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= 'All of your happy customers:'
+    table.table
+        each customer in customers.length ? customers : ['There are no values']
+            tr
+                td #{customer.id}
+                td #{customer.first_name}
+                td #{customer.last_name}
+                td
+                    button.btn.btn-warning Edit
+                td
+                    button.btn.btn-danger Remove

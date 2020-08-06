@@ -10,6 +10,18 @@ module.exports.createServer = function createServer() {
     // config.applyConfiguration(server);
     server.use(express.json());
     server.use(express.urlencoded({ extended: true }));
+    server.set('view engine', 'pug')
+
+    server.get('/', function (req, res) {
+        res.render('home', { title: 'Hey', message: 'Hello there!' })
+    })
+    server.get('/orders', function (req, res) {
+        // res.render('orders', { title: 'Orders', orders: require('./services/orders.service').readAll })
+        require('./services/orders.service').readAll(req, res);
+    })
+    server.get('/customers', function (req, res) {
+        require('./services/customers.service').readAll(req, res);
+    })
 
     // attach router handlers
     server.use('/api', apiRouter);

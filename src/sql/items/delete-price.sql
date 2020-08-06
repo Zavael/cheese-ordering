@@ -1,0 +1,1 @@
+DELETE FROM priced_items WHERE id = ${id};

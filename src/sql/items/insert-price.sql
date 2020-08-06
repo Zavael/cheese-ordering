@@ -1,0 +1,1 @@
+INSERT INTO priced_items(${this:valid_from},${this:valid_to},${this:value},${this:item_id}) VALUES (${this:list}) RETURNING *;

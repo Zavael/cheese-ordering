@@ -14,12 +14,23 @@ function sql(file) {
 }
 
 module.exports = {
-    goods: {
+    items: {
+        selectAll: sql('items/select-all.sql'),
+        insert: sql('items/insert.sql'),
+        insertPrice: sql('items/insert-price.sql'),
+        delete: sql('items/delete.sql'),
+        deletePrice: sql('items/delete-price.sql')
     },
     customers: {
         insert: sql('customers/insert.sql'),
         selectAll: sql('customers/select-all.sql'),
         update: sql('customers/update.sql'),
         delete: sql('customers/delete.sql'),
+    },
+    orders: {
+        insert: sql('orders/insert.sql'),
+        selectAll: sql('orders/select-all.sql'),
+        update: sql('orders/update.sql'),
+        delete: sql('orders/delete.sql'),
     }
 };

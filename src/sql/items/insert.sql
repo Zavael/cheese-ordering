@@ -1,0 +1,1 @@
+INSERT INTO items(${this:name}) VALUES (${this:list}) RETURNING *;

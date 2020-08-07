@@ -11,3 +11,12 @@ block content
                 td #{order.customer_id}
                 td
                     button(class='btn btn-danger') Remove
+    h2 Add new Order
+    form.form-inline(action="/orders", method="POST")
+        div.form-group
+            label(for="first_name") First name:
+            input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name")
+        div.form-group 
+            label(for="last_name") Last name:
+            input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name")
+        button.btn.btn-success.btn_left_margin(type="submit") Submit

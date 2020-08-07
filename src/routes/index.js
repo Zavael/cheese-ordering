@@ -1,13 +1,18 @@
 var express = require('express');
 var router = express.Router();
+const log = require('../logger')('ROUTER');
 
-// here we can add new routes corresponding to files in this dir
-require('./customers').attachHandlers(router);
-//    require('./goods').attachHandlers(router);
+router.use(function (req, res, next) {
+    log.debug('%s %s %s', req.method, req.url, req.path)
+    next()
+})
+
+router.use('/customers', require('./customers.route'));
+router.use('/orders', require('./orders.route'));
 
 router.route('/')
     .get(function (req, res) {
-        res.render('index', { title: 'Home' });
+        res.render('home', { title: 'Hey', message: 'Hello there!' });
     });
 
 module.exports = router;

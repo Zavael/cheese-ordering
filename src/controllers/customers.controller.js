@@ -2,46 +2,24 @@ const db = require('../db');
 const sql = require('../sql').customers;
 const log = require('../logger')(__filename.slice(__dirname.length + 1));
 
-function createCustomer(req, res, next) {
-    log.info('create customer', req.body);
-
-    if (!req.body || !req.body.length) {
-        log.warn('Invalid data provided', req.body);
-        res.status(400).send('Invalid data!');
-        return;
-    }
-
-    db.none(sql.insert, req.body)
-        .then(() => {
-            res.status(201).json(req.body);
-        })
-        .catch((error) => {
-            log.error('Error occured', error);
-            next(error);
-        });
+function createCustomer(customer) {
+    log.info('create customer', customer);
+    return db.one(sql.insert, customer);
 };
 
-function readAll(req, res, next) {
+function readAll() {
     log.info('read customers');
-    db.any(sql.selectAll)
-        .then(customers => {
-            log.debug('returning', customers);
-            res.send(customers);
-        })
-        .catch((error) => {
-            log.error(error);
-            next(error);
-        });
+    return db.any(sql.selectAll);
 };
 
-function updateCustomer(req, res, next) {
+function updateCustomer(id) {
     log.info('update customer', req.params, req.body);
     res.send('TBD');
 };
 
-function deleteCustomer(req, res, next) {
+function deleteCustomer(id) {
     log.info('delete customer', req.params);
-    res.send('TBD');
+    return db.none(sql.delete, id)
 };
 
 module.exports = {

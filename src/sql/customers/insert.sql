@@ -1,1 +1,1 @@
-INSERT INTO customers(${this:first_name}, ${this:last_name}) VALUES (${this:list}) RETURNING *;
+INSERT INTO customers(${this:name}) VALUES (${this:list}) RETURNING *;

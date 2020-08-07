@@ -2,6 +2,7 @@ extends layout
 
 block content
     h1= 'All of your happy customers:'
+    
     table.table
         each customer in customers.length ? customers : ['There are no values']
             tr
@@ -11,4 +12,14 @@ block content
                 td
                     button.btn.btn-warning Edit
                 td
-                    button.btn.btn-danger Remove
+                    form(action="/", method="DELETE")
+                        button.btn.btn-danger(type="submit") Remove
+    h2 Add new User
+    form.form-inline(action="/customers", method="POST")
+        div.form-group
+            label(for="first_name") First name:
+            input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name")
+        div.form-group 
+            label(for="last_name") Last name:
+            input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name")
+        button.btn.btn-success.btn_left_margin(type="submit") Submit

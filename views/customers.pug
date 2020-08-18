@@ -1,25 +1,38 @@
 extends layout
 
 block content
-    h1= 'All of your happy customers:'
-    
-    table.table
-        each customer in customers.length ? customers : ['There are no values']
-            tr
-                td #{customer.id}
-                td #{customer.first_name}
-                td #{customer.last_name}
-                td
-                    button.btn.btn-warning Edit
-                td
-                    form(action="/", method="DELETE")
-                        button.btn.btn-danger(type="submit") Remove
-    h2 Add new User
-    form.form-inline(action="/customers", method="POST")
-        div.form-group
-            label(for="first_name") First name:
-            input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name")
-        div.form-group 
-            label(for="last_name") Last name:
-            input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name")
-        button.btn.btn-success.btn_left_margin(type="submit") Submit
+    .container-fluid
+        h1= 'All of your happy customers:'
+        
+        .row
+            .col-sm-8
+                table.table.table-striped
+                    tr
+                        th #
+                        th First name
+                        th Last name
+                        th
+                        th
+                    each customer in customers.length ? customers : ['There are no values']
+                        tr
+                            td #{customer.id}
+                            td #{customer.first_name}
+                            td #{customer.last_name}
+                            td
+                                button.btn.btn-warning
+                                    i.fa.fa-pencil
+                            td
+                                form.form-inline(action="/customers/1", method="DELETE")
+                                    button.btn.btn-danger(type="submit")
+                                        i.fa.fa-trash
+            .col-sm-4
+                .card.shadow.card-body
+                    h2 Add new customer
+                    form.form-horizontal(action="/customers", method="POST")
+                        .form-group
+                            label(for="first_name") First name:
+                            input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name")
+                        .form-group 
+                            label(for="last_name") Last name:
+                            input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name")
+                        button.btn.btn-success(type="submit") Submit

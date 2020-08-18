@@ -17,13 +17,13 @@ INSERT INTO public.priced_items(valid_from, valid_to, value, item_id)
         ('2020-01-01', '2020-12-01', 30, 2),
         ('2020-01-01', '2020-12-01', 40, 3);
 
-INSERT INTO public.orders(id, payment_status, date, customer_id)
+INSERT INTO public.orders(id, payment_status, date, total_price, customer_id)
 	VALUES
-        (0, 't', '2020-04-15', 0),
-        (1, 'f', '2020-06-15', 0),
-        (2, 't', '2020-04-25', 1),
-        (3, 'f', '2020-05-25', 1),
-        (4, 'f', '2020-06-25', 1);
+        (0, 't', '2020-04-15', 12, 0),
+        (1, 'f', '2020-06-15', 8, 0),
+        (2, 't', '2020-04-25', 21, 1),
+        (3, 'f', '2020-05-25', 38, 1),
+        (4, 'f', '2020-06-25', 5, 1);
 
 INSERT INTO public.ordered_items(amount, item_id, order_id)
 	VALUES

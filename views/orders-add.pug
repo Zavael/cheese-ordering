@@ -1,0 +1,20 @@
+h2 Add new order
+form.form-horizontal(action="/orders", method="POST")
+    div.form-group
+        label(for="customer") Customer:
+        select#customer.form-control(name="customer")
+            each customer in customers
+                option #{customer.first_name} #{customer.last_name}
+    div.form-group
+        label(for="item") Item:
+        input#item.form-control(type="text" name="item" placeholder="Select item")
+        input#amount.form-control(type="text" name="amount" placeholder="Add amount")
+        button.btn.btn-default Add to order
+    div.form-group
+        h3 Added:
+        ul
+            each item in addedItems
+                li #{item.name} #{item.amount}
+                    button.btn
+                        i.fa.fa-trash-o
+    button.btn.btn-success(type="submit") Create order

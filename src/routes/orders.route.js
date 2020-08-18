@@ -1,13 +1,21 @@
 var router = require('express').Router()
 const controller = require('../controllers/orders.controller')
+const customersController = require('../controllers/customers.controller')
 const log = require('../logger')(__filename.slice(__dirname.length + 1))
 
 router.route('/')
     .get((req, res) => {
         controller.readAll()
             .then(orders => {
-                log.debug('returning', orders)
-                res.render('./orders', { orders: orders })
+                customersController.readAll()
+                    .then(customers => {
+                        orders.forEach(order => {
+                            order.customer = customers
+                                .find(storedCustomer => order.customer_id == storedCustomer.id)
+                        });
+                        log.debug('returning', orders)
+                        res.render('./orders', { orders: orders, customers: customers })
+                    })
             })
             .catch((error) => {
                 log.error('Error occured', error)

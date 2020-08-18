@@ -2,46 +2,39 @@ extends layout
 
 block content
 
-    - var addedItems = [{ id: 0, name: 'jablko', amount: 4}, { id: 0, name: 'rozok', amount: 10}]
+	- var addedItems = [{ id: 0, name: 'jablko', amount: 4}, { id: 0, name: 'rozok', amount: 10}]
 
-    .container-fluid
-        h1= 'All of your created orders:'
-        
-        .row
-            .col-sm-8
-                table.table                
-                    tr
-                        th #
-                        th Date
-                        th Customer
-                        th Paid
-                        th
-                    each order in orders.length ? orders : ['There are no values']
-                        tr
-                            td #{order.id}
-                            td #{order.date}
-                            td #{order.customer_id}
-                            td #{order.payment_status}
-                            td
-                                button.btn.btn-danger(type="submit")
-                                    i.fa.fa-trash
-            .col-sm-4
-                .card.shadow.card-body
-                    h2 Add new order
-                    form.form-horizontal(action="/orders", method="POST")
-                        div.form-group
-                            label(for="customer") Customer:
-                            input#customer.form-control(type="text" name="customer" placeholder="Select customer")
-                        div.form-group
-                            label(for="item") Item:
-                            input#item.form-control(type="text" name="item" placeholder="Select item")
-                            input#amount.form-control(type="text" name="amount" placeholder="Add amount")
-                            button.btn.btn-default Add to order
-                        div
-                            h3 Added:
-                            ul
-                                each item in addedItems
-                                    li #{item.name} #{item.amount}
-                                        button.btn
-                                            i.fa.fa-trash
-                        button.btn.btn-success(type="submit") Create order
+	.container-fluid
+		h1 All of your created orders:
+		.row
+			.col-sm-8
+				table.table.table-striped.text-center                
+					tr
+						th #
+						th Date
+						th Customer
+						th Total price
+						th Paid
+						th
+						th
+					each order in orders.length ? orders : ['There are no values']
+						tr
+							td #{order.id}
+							td #{moment(order.date).format('DD.MM.yyyy hh:mm:ss')}
+							td #{order.customer.first_name} #{order.customer.last_name}
+							td #{order.total_price} €
+							td
+								if order.payment_status
+									i.fa.fa-check
+								else
+									button.btn.btn-default set
+							td
+								button.btn.btn-success(type="submit", title='Archive order = hide from list')
+									i.fa.fa-archive
+							td
+								button.btn.btn-danger(type="submit")
+									i.fa.fa-trash-o
+			.col-sm-4
+				.card.shadow.card-body
+					include orders-add.pug
+							

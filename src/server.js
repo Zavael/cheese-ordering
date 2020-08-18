@@ -9,6 +9,7 @@ module.exports.createServer = function createServer() {
     log.debug('Setting up basic startup configuration...')
     // config.applyConfiguration(server);
     server.use(express.json())
+    server.locals.moment = require('moment');
     server.use(express.urlencoded({ extended: true }))
     server.set('view engine', 'pug')
 

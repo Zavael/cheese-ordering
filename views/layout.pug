@@ -5,16 +5,17 @@ html
 		meta(http-equiv='X-UA-Compatible', content='IE=edge')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
 		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
 		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
 		title= title
 	body
-		nav.navbar.navbar-inverse
-			ul.nav.navbar-nav
-				li
-					a(href="/orders") Orders
-				li
-					a(href="/customers") Customers
+		nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+			ul.navbar-nav
+				li.nav-item
+					a.nav-link(href="/orders") Orders
+				li.nav-item
+					a.nav-link(href="/customers") Customers
 		div.container
 			block content
 		block footer		

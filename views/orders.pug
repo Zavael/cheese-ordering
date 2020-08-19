@@ -17,7 +17,7 @@ block content
 						th Paid
 						th
 						th
-					each order in orders.length ? orders : ['There are no values']
+					each order in orders
 						tr
 							td #{order.id}
 							td #{moment(order.date).format('DD.MM.yyyy hh:mm:ss')}
@@ -34,6 +34,9 @@ block content
 							td
 								button.btn.btn-danger(type="submit")
 									i.fa.fa-trash-o
+					else
+						tr
+							td(colspan=7) There are no items
 			.col-sm-4
 				.card.shadow.card-body
 					include orders-add.pug

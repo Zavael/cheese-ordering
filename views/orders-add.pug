@@ -5,6 +5,8 @@ form.form-horizontal(action="/orders", method="POST")
         select#customer.form-control(name="customer")
             each customer in customers
                 option #{customer.first_name} #{customer.last_name}
+            else
+                option No items
     div.form-group
         label(for="item") Item:
         input#item.form-control(type="text" name="item" placeholder="Select item")

@@ -36,3 +36,13 @@ INSERT INTO public.ordered_items(amount, item_id, order_id)
         (3, 4, 4),
         (3, 2, 5),
         (2, 3, 5);
+
+-- reset sequences to correctly generate next ids
+
+SELECT setval('items_id_seq', max(id)) FROM items;
+SELECT setval('customers_id_seq', max(id)) FROM customers;
+SELECT setval('priced_items_id_seq', max(id)) FROM priced_items;
+SELECT setval('orders_id_seq', max(id)) FROM orders;
+SELECT setval('ordered_items_id_seq', max(id)) FROM ordered_items;
+
+SELECT 'done' as result;

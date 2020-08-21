@@ -1,20 +1,10 @@
 extends layout
 
 block content
-	script.
-		function deleteCustomer(id) {
-			console.log('im here')
-			$.ajax({
-				type: "DELETE",
-				url: "/customers/" + id,
-				success: function(){
-					location.reload()
-				}
-			});
-		}
+	script
+		include scripts/restApi.js
 	.container-fluid
-		h1= 'All of your happy customers:'
-		
+		h1= 'All of your happy customers:'		
 		.row
 			.col-sm-8
 				table.table.table-striped.text-center
@@ -22,16 +12,16 @@ block content
 						th #
 						th First name
 						th Last name
-						th
+						//- th
 						th
 					each customer in customers
 						tr
 							td #{customer.id}
 							td #{customer.first_name}
 							td #{customer.last_name}
-							td
-								button.btn.btn-warning
-									i.fa.fa-pencil
+							//- td
+								//- button.btn.btn-warning
+								//- 	i.fa.fa-pencil
 							td
 								button.btn.btn-danger(onClick="deleteCustomer(" + customer.id + ")")
 									i.fa.fa-trash
@@ -44,8 +34,8 @@ block content
 					form.form-horizontal(action="/customers", method="POST")
 						.form-group
 							label(for="first_name") First name:
-							input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name")
+							input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name" required)
 						.form-group 
 							label(for="last_name") Last name:
-							input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name")
+							input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name" required)
 						button.btn.btn-success(type="submit") Submit

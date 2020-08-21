@@ -1,0 +1,9 @@
+h2 Add new customer
+form.form-horizontal(action="/customers", method="POST")
+    .form-group
+        label(for="first_name") First name:
+        input#first_name.form-control(type="text" name="first_name" placeholder="Enter first name" required)
+    .form-group 
+        label(for="last_name") Last name:
+        input#last_name.form-control(type="text" name="last_name" placeholder="Enter last name" required)
+    button.btn.btn-success(type="submit") Submit

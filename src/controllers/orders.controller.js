@@ -12,7 +12,13 @@ function createOrder(order) {
     return db.one(sql.insert, order);
 };
 
+function deleteOrder(id) {
+    log.info('delete order', id);
+    return db.none(sql.delete, id);
+};
+
 module.exports = {
     create: createOrder,
-    readAll: readAll
+    readAll: readAll,
+    delete: deleteOrder
 }

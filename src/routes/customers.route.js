@@ -36,7 +36,7 @@ router.route('/:id')
     .delete((req, res, next) => {
         controller.delete(req.params.id)
             .then(() => {
-                log.debug('deleted customer ', req.params.id)
+                log.debug('deleted customer', req.params.id)
                 res.end()
             })
             .catch((error) => {

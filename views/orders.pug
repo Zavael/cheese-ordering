@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	script
+		include scripts/orders.js
 
 	- var addedItems = [{ id: 0, name: 'jablko', amount: 4}, { id: 0, name: 'rozok', amount: 10}]
 
@@ -32,7 +34,7 @@ block content
 								button.btn.btn-success(type="submit", title='Archive order = hide from list')
 									i.fa.fa-archive
 							td
-								button.btn.btn-danger(type="submit")
+								button.btn.btn-danger(onClick="deleteOrder(" + order.id + ")")
 									i.fa.fa-trash-o
 					else
 						tr

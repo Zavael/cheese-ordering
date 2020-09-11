@@ -1,1 +1,1 @@
-DELETE FROM orders WHERE id = ${id};
+DELETE FROM orders WHERE id = $1;

@@ -23,6 +23,19 @@ router.route('/')
             })
     })
 
+router.route('/:id')
+    .delete((req, res) => {
+        controller.delete(req.params.id)
+            .then(() => {
+                log.debug('deleted order', req.params.id)
+                res.end()
+            })
+            .catch((error) => {
+                log.error('Error occured', error)
+                next(error)
+            })
+    })
+
 router.route('/add')
     .get((req, res) => {
         res.render('./orders/add')

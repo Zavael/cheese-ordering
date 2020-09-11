@@ -1,1 +1,2 @@
-SELECT * FROM orders;
+SELECT * FROM orders
+WHERE archived = false;

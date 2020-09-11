@@ -31,7 +31,7 @@ block content
 								else
 									button.btn.btn-default set
 							td
-								button.btn.btn-success(type="submit", title='Archive order = hide from list')
+								button.btn.btn-success(onClick="archiveOrder(" + order.id + ")", title='Archive order = hide from list')
 									i.fa.fa-archive
 							td
 								button.btn.btn-danger(onClick="deleteOrder(" + order.id + ")")

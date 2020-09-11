@@ -85,6 +85,7 @@ CREATE TABLE "orders"
   "payment_status" Boolean,
   "date" Date,
   "total_price" integer,
+  "archived" Boolean DEFAULT false,
   "customer_id" integer REFERENCES "customers" ("id") ON DELETE CASCADE ON UPDATE NO ACTION
 )
 WITH (

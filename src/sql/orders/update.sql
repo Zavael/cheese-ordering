@@ -1,4 +1,5 @@
 UPDATE orders 
 SET 
-    payment_status = ${data.payment_status}
-WHERE id = ${id}
+    $2:raw
+WHERE id = $1
+RETURNING *;

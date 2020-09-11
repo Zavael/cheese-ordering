@@ -11,7 +11,7 @@ router.route('/')
                     .then(customers => {
                         orders.forEach(order => {
                             order.customer = customers
-                                .find(storedCustomer => order.customer_id == storedCustomer.id)
+                                .find(storedCustomer => order.customer_id === storedCustomer.id)
                         });
                         log.debug('returning', orders)
                         res.render('./orders', { orders: orders, customers: customers })
@@ -28,6 +28,17 @@ router.route('/:id')
         controller.delete(req.params.id)
             .then(() => {
                 log.debug('deleted order', req.params.id)
+                res.end()
+            })
+            .catch((error) => {
+                log.error('Error occured', error)
+                next(error)
+            })
+    })
+    .put((req, res) => {
+        controller.update(req.params.id, req.body)
+            .then((updatedOrder) => {
+                log.debug('updated order', updatedOrder)
                 res.end()
             })
             .catch((error) => {
